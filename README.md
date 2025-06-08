@@ -81,7 +81,7 @@ expense-tracker/
 
 1. **Clone the repository**
    \`\`\`bash
-   git clone [your-repo-url]
+   git clone [https://github.com/URUJENI123/first-app.git]
    cd expense-tracker
    \`\`\`
 
@@ -104,6 +104,7 @@ expense-tracker/
 [Generate QR code by running `expo start` and include screenshot here]
 
 ## 📸 Screenshots
+![Screenshot 2025-06-08 010611](https://github.com/user-attachments/assets/004657b3-5d7e-4191-b801-978b879d567d)
 
 ### Authentication Screens
 - Login screen with form validation
@@ -216,5 +217,5 @@ Built as part of the React Native Weekend Assignment to showcase practical appli
 │                     │   (AsyncStorage)   │      │
 │                     └────────────────────┘      │
 └─────────────────────────────────────────────────┘
-![Screenshot 2025-06-08 010611](https://github.com/user-attachments/assets/004657b3-5d7e-4191-b801-978b879d567d)
+
 
