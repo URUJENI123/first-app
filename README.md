@@ -203,3 +203,18 @@ This app demonstrates proficiency in:
 - Component architecture
 
 Built as part of the React Native Weekend Assignment to showcase practical application of tutorial concepts in a real-world mobile application.
+┌─────────────────────────────────────────────────┐
+│                  Mobile App                     │
+│                                                 │
+│  ┌─────────────┐    ┌─────────────────────────┐ │
+│  │   UI Layer  │    │     Business Logic      │ │
+│  │  (Screens)  │◄──►│     (Context APIs)      │ │
+│  └─────────────┘    └──────────┬──────────────┘ │
+│                               │                 │
+│                     ┌─────────▼──────────┐      │
+│                     │   Local Storage    │      │
+│                     │   (AsyncStorage)   │      │
+│                     └────────────────────┘      │
+└─────────────────────────────────────────────────┘
+![Screenshot 2025-06-08 010611](https://github.com/user-attachments/assets/004657b3-5d7e-4191-b801-978b879d567d)
+
