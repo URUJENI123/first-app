@@ -56,6 +56,7 @@ export const AuthProvider = ({ children }) => {
       } else {
         return { success: false, error: "Invalid credentials" };
       }
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return { success: false, error: "Login failed" };
     }
@@ -91,6 +92,7 @@ export const AuthProvider = ({ children }) => {
       setUser(userData);
 
       return { success: true };
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return { success: false, error: "Registration failed" };
     }
