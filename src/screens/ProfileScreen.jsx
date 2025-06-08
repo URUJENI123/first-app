@@ -124,7 +124,7 @@ export default function ProfileScreen() {
 
             <List.Item
               title="Developer"
-              description="React Native Weekend Assignment"
+              description="React Native & Expo"
               left={(props) => <List.Icon {...props} icon="code-tags" />}
             />
             <Divider />
