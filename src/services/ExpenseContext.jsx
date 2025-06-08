@@ -33,6 +33,7 @@ export const ExpenseProvider = ({ children }) => {
     if (user) {
       loadExpenses();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const loadExpenses = async () => {
@@ -71,6 +72,7 @@ export const ExpenseProvider = ({ children }) => {
       await saveExpenses(updatedExpenses);
 
       return { success: true };
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return { success: false, error: "Failed to add expense" };
     }
