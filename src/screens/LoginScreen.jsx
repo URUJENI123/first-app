@@ -11,8 +11,7 @@ import {
 import {
   TextInput,
   Button,
-  Title,
-  Paragraph,
+  Text,
   Card,
   HelperText,
 } from "react-native-paper";
@@ -65,10 +64,10 @@ export default function LoginScreen({ navigation }) {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.title}>Welcome Back</Title>
-            <Paragraph style={styles.subtitle}>
+            <Text style={styles.title}>Welcome Back</Text>
+            <Text style={styles.subtitle}>
               Sign in to your account
-            </Paragraph>
+            </Text>
 
             <TextInput
               label="Email"

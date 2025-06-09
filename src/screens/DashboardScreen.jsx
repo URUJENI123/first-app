@@ -1,6 +1,6 @@
 "use client";
 import { View, StyleSheet, ScrollView, Dimensions } from "react-native";
-import { Card, Title, Paragraph, Appbar, Chip } from "react-native-paper";
+import { Card, Text, Appbar, Chip } from "react-native-paper";
 import { PieChart } from "react-native-chart-kit";
 import { useAuth } from "../services/AuthContext";
 import { useExpenses } from "../services/ExpenseContext";
@@ -54,7 +54,7 @@ export default function DashboardScreen() {
         {chartData.length > 0 && (
           <Card style={styles.card}>
             <Card.Content>
-              <Title style={styles.cardTitle}>Expenses by Category</Title>
+              <Text style={styles.cardTitle}>Expenses by Category</Text>
               <PieChart
                 data={chartData}
                 width={screenWidth - 60}
@@ -77,32 +77,32 @@ export default function DashboardScreen() {
         {/* Recent Expenses */}
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.cardTitle}>Recent Expenses</Title>
+            <Text style={styles.cardTitle}>Recent Expenses</Text>
             {recentExpenses.length > 0 ? (
               recentExpenses.map((expense) => (
                 <View key={expense.id} style={styles.expenseItem}>
                   <View style={styles.expenseInfo}>
-                    <Paragraph style={styles.expenseTitle}>
+                    <Text style={styles.expenseTitle}>
                       {expense.title}
-                    </Paragraph>
+                    </Text>
                     <View style={styles.expenseDetails}>
                       <Chip mode="outlined" compact style={styles.categoryChip}>
                         {expense.category}
                       </Chip>
-                      <Paragraph style={styles.expenseDate}>
+                      <Text style={styles.expenseDate}>
                         {formatDate(expense.createdAt)}
-                      </Paragraph>
+                      </Text>
                     </View>
                   </View>
-                  <Paragraph style={styles.expenseAmount}>
+                  <Text style={styles.expenseAmount}>
                     {formatCurrency(expense.amount)}
-                  </Paragraph>
+                  </Text>
                 </View>
               ))
             ) : (
-              <Paragraph style={styles.noExpenses}>
+              <Text style={styles.noExpenses}>
                 No expenses yet. Add your first expense!
-              </Paragraph>
+              </Text>
             )}
           </Card.Content>
         </Card>

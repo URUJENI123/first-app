@@ -2,8 +2,7 @@
 import { View, StyleSheet, ScrollView, Alert } from "react-native";
 import {
   Card,
-  Title,
-  Paragraph,
+  Text,
   Appbar,
   Button,
   List,
@@ -63,15 +62,15 @@ export default function ProfileScreen() {
               label={getInitials(user?.name || "U")}
               style={styles.avatar}
             />
-            <Title style={styles.userName}>{user?.name}</Title>
-            <Paragraph style={styles.userEmail}>{user?.email}</Paragraph>
+            <Text style={styles.userName}>{user?.name}</Text>
+            <Text style={styles.userEmail}>{user?.email}</Text>
           </Card.Content>
         </Card>
 
         {/* Statistics Card */}
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.cardTitle}>Your Statistics</Title>
+            <Text style={styles.cardTitle}>Your Statistics</Text>
 
             <List.Item
               title="Total Expenses"
@@ -113,7 +112,7 @@ export default function ProfileScreen() {
         {/* App Info Card */}
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.cardTitle}>About</Title>
+            <Text style={styles.cardTitle}>About</Text>
 
             <List.Item
               title="App Version"

@@ -12,7 +12,7 @@ import {
   TextInput,
   Button,
   Card,
-  Title,
+  Text,
   Appbar,
   HelperText,
   Menu,
@@ -103,7 +103,7 @@ export default function AddExpenseScreen({ navigation }) {
       <ScrollView style={styles.content}>
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.cardTitle}>New Expense</Title>
+            <Text style={styles.cardTitle}>New Expense</Text>
 
             <TextInput
               label="Expense Title"

@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import { Card, Title, Paragraph, Chip, IconButton } from "react-native-paper";
+import { Card, Text, Chip, IconButton } from "react-native-paper";
 
 const ExpenseCard = ({ expense, onDelete }) => {
   const formatCurrency = (amount) => {
@@ -15,10 +15,10 @@ const ExpenseCard = ({ expense, onDelete }) => {
       <Card.Content>
         <View style={styles.header}>
           <View style={styles.info}>
-            <Title style={styles.title}>{expense.title}</Title>
-            <Paragraph style={styles.amount}>
+            <Text style={styles.title}>{expense.title}</Text>
+            <Text style={styles.amount}>
               {formatCurrency(expense.amount)}
-            </Paragraph>
+            </Text>
           </View>
           {onDelete && (
             <IconButton
@@ -33,15 +33,15 @@ const ExpenseCard = ({ expense, onDelete }) => {
           <Chip mode="outlined" compact style={styles.categoryChip}>
             {expense.category}
           </Chip>
-          <Paragraph style={styles.date}>
+          <Text style={styles.date}>
             {formatDate(expense.createdAt)}
-          </Paragraph>
+          </Text>
         </View>
 
         {expense.description ? (
-          <Paragraph style={styles.description}>
+          <Text style={styles.description}>
             {expense.description}
-          </Paragraph>
+          </Text>
         ) : null}
       </Card.Content>
     </Card>

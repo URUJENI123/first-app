@@ -33,7 +33,6 @@ The Expense Tracker helps users manage their personal finances by tracking expen
 - Error handling and user feedback
 
 ### 💾 5. Database Integration (AsyncStorage)
-- CRUD operations for expenses
 - Real-time data updates
 - Data persistence across app sessions
 - User-specific data storage

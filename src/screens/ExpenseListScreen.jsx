@@ -4,8 +4,7 @@ import { useState } from "react";
 import { View, StyleSheet, FlatList, Alert } from "react-native";
 import {
   Card,
-  Title,
-  Paragraph,
+  Text,
   Appbar,
   FAB,
   Searchbar,
@@ -112,12 +111,12 @@ export default function ExpenseListScreen({ navigation }) {
           ListEmptyComponent={
             <Card style={styles.emptyCard}>
               <Card.Content>
-                <Title style={styles.emptyTitle}>No expenses found</Title>
-                <Paragraph style={styles.emptyText}>
+                <Text style={styles.emptyTitle}>No expenses found</Text>
+                <Text style={styles.emptyText}>
                   {searchQuery || selectedCategory !== "All"
                     ? "Try adjusting your search or filter"
                     : "Add your first expense to get started!"}
-                </Paragraph>
+                </Text>
               </Card.Content>
             </Card>
           }

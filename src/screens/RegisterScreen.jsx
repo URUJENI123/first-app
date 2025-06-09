@@ -11,8 +11,7 @@ import {
 import {
   TextInput,
   Button,
-  Title,
-  Paragraph,
+  Text,
   Card,
   HelperText,
 } from "react-native-paper";
@@ -75,10 +74,10 @@ export default function RegisterScreen({ navigation }) {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.title}>Create Account</Title>
-            <Paragraph style={styles.subtitle}>
+            <Text style={styles.title}>Create Account</Text>
+            <Text style={styles.subtitle}>
               Sign up to get started
-            </Paragraph>
+            </Text>
 
             <TextInput
               label="Full Name"

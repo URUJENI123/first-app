@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
-import { Card, Title, Paragraph } from "react-native-paper";
+import { Card, Text } from "react-native-paper";
 
 const StatCard = ({ title, value, subtitle, style }) => {
   return (
     <Card style={[styles.card, style]}>
       <Card.Content style={styles.content}>
-        <Title style={styles.value}>{value}</Title>
-        <Paragraph style={styles.title}>{title}</Paragraph>
-        {subtitle && <Paragraph style={styles.subtitle}>{subtitle}</Paragraph>}
+        <Text style={styles.value}>{value}</Text>
+        <Text style={styles.title}>{title}</Text>
+        {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
       </Card.Content>
     </Card>
   );
