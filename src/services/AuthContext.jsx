@@ -23,9 +23,11 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthState = async () => {
     try {
-      const userData = await AsyncStorage.getItem("user");
+      const userData = await AsyncStorage.getItem("currentUser");
       if (userData) {
-        setUser(JSON.parse(userData));
+        const parsedUser = JSON.parse(userData);
+        console.log("Loaded user:", parsedUser); // Debug log
+        setUser(parsedUser);
       }
     } catch (error) {
       console.error("Error checking auth state:", error);
@@ -36,35 +38,42 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      // Simulate API call
-      const users = await AsyncStorage.getItem("users");
+      // Get all users
+      const users = await AsyncStorage.getItem("allUsers");
       const userList = users ? JSON.parse(users) : [];
 
+      // Find user with matching credentials
       const foundUser = userList.find(
         (u) => u.email === email && u.password === password
       );
 
       if (foundUser) {
+        // Create clean user object with consistent ID
         const userData = {
           id: foundUser.id,
           email: foundUser.email,
           name: foundUser.name,
         };
-        await AsyncStorage.setItem("user", JSON.stringify(userData));
+
+        console.log("Logging in user:", userData); // Debug log
+
+        // Store current user separately
+        await AsyncStorage.setItem("currentUser", JSON.stringify(userData));
         setUser(userData);
         return { success: true };
       } else {
         return { success: false, error: "Invalid credentials" };
       }
-    // eslint-disable-next-line no-unused-vars
     } catch (error) {
+      console.error("Login error:", error);
       return { success: false, error: "Login failed" };
     }
   };
 
   const register = async (name, email, password) => {
     try {
-      const users = await AsyncStorage.getItem("users");
+      // Get existing users
+      const users = await AsyncStorage.getItem("allUsers");
       const userList = users ? JSON.parse(users) : [];
 
       // Check if user already exists
@@ -73,34 +82,42 @@ export const AuthProvider = ({ children }) => {
         return { success: false, error: "User already exists" };
       }
 
+      // Create new user with unique ID
       const newUser = {
-        id: Date.now().toString(),
-        name,
-        email,
+        id: `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`, // More unique ID
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
         password,
+        createdAt: new Date().toISOString(),
       };
 
-      userList.push(newUser);
-      await AsyncStorage.setItem("users", JSON.stringify(userList));
+      console.log("Registering new user:", newUser); // Debug log
 
+      // Add to user list
+      userList.push(newUser);
+      await AsyncStorage.setItem("allUsers", JSON.stringify(userList));
+
+      // Set as current user
       const userData = {
         id: newUser.id,
         email: newUser.email,
         name: newUser.name,
       };
-      await AsyncStorage.setItem("user", JSON.stringify(userData));
+
+      await AsyncStorage.setItem("currentUser", JSON.stringify(userData));
       setUser(userData);
 
       return { success: true };
-    // eslint-disable-next-line no-unused-vars
     } catch (error) {
+      console.error("Registration error:", error);
       return { success: false, error: "Registration failed" };
     }
   };
 
   const logout = async () => {
     try {
-      await AsyncStorage.removeItem("user");
+      console.log("Logging out user:", user); // Debug log
+      await AsyncStorage.removeItem("currentUser");
       setUser(null);
     } catch (error) {
       console.error("Logout error:", error);
